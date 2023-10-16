@@ -4,3 +4,8 @@ export interface CircleImageProps {
   width: number;
   alt: string;
 }
+
+export interface TitleSearchProps {
+  title: string;
+  onChange: Function;
+}
