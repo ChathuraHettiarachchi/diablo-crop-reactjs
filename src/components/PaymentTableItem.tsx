@@ -4,15 +4,23 @@ import PaymentStatus from "./PaymentStatus";
 
 import { PaymentTableItemProps } from "@/types";
 import { totalPay } from "@/utils/calculations";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { setEmployee } from "@/redux/features/payrunEmployee-slice";
 
 const PaymentTableItem = (props: PaymentTableItemProps) => {
   const emp = props.employee;
+  const dispatch = useDispatch<AppDispatch>();
   const url = "/pay-runs/packet?id=" + emp.employeeId;
+
+  const setEmployeeData = () => {
+    dispatch(setEmployee(emp));
+  };
 
   return (
     <div>
       <div className="hidden hover:cursor-pointer lg:grid">
-        <Link href={url}>
+        <Link href={url} onClick={setEmployeeData}>
           <div className="hidden h-14 grid-cols-5 items-center bg-gray-100 lg:grid">
             <p className="table-row underline">{emp.employeeId}</p>
             <p className="table-row">{emp.employeeName}</p>
@@ -27,7 +35,7 @@ const PaymentTableItem = (props: PaymentTableItemProps) => {
       </div>
 
       <div className="lg:hidden">
-        <Link href={url}>
+        <Link href={url} onClick={setEmployeeData}>
           <div
             className="flex h-[100px] w-full items-center rounded-md bg-gray-100 hover:cursor-pointer 
     "

@@ -19,10 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-full">
+      <body className="min-h-full">
         <ReduxProvider>
           <Header />
-          <div className="mx-auto max-h-full max-w-7xl">{children}</div>
+          <div className="mx-auto min-h-full max-w-7xl overflow-auto">
+            {children}
+          </div>
           <Footer />
         </ReduxProvider>
       </body>

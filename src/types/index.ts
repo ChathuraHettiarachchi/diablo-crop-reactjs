@@ -1,3 +1,5 @@
+import { HtmlHTMLAttributes } from "react";
+
 export enum Status {
   Pending = "Pending Approval",
   Approved = "Approved",
@@ -13,7 +15,7 @@ export interface CircleImageProps {
 
 export interface TitleSearchProps {
   title: string;
-  onChange: Function;
+  onChange: () => any;
 }
 
 export interface PaymentTableItemProps {
@@ -28,6 +30,22 @@ export interface EmployeeProps {
   employee: EmployeeState;
 }
 
+export interface PaySheetProps {
+  employee: EmployeeState;
+}
+
+export interface PayPacketProps {
+  payData: PaymentState;
+  nameClass?: string | undefined;
+  descriptionClass?: string | undefined;
+  amountClass?: string | undefined;
+}
+
+export interface ActionButtonProps {
+  title: string;
+  action: () => any;
+}
+//----------------------------------------------------------
 export type InitialState = {
   value: EmployeeState[];
 };
