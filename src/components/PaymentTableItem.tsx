@@ -1,6 +1,7 @@
 import { PaymentTableItemProps } from "@/types";
 import Link from "next/link";
 import React from "react";
+import PaymentStatus from "./PaymentStatus";
 
 const PaymentTableItem = (props: PaymentTableItemProps) => {
   return (
@@ -12,25 +13,29 @@ const PaymentTableItem = (props: PaymentTableItemProps) => {
           </Link>
           <p className="table-row">{props.name}</p>
           <p className="table-row">{props.payDay}</p>
-          <p className="table-row">{props.status}</p>
+          <div className="table-row">
+            <PaymentStatus status={props.status} />
+          </div>
           <p className="table-row">{props.amount}</p>
         </div>
         <hr />
       </div>
 
-      <div className="flex h-[100px] w-full items-center rounded-md bg-gray-100 p-4 hover:cursor-pointer lg:hidden">
-        <div className="min-w-0 flex-1">
+      <div className="flex h-[100px] w-full items-center rounded-md bg-gray-100 hover:cursor-pointer lg:hidden">
+        <div className="min-w-0 flex-1  p-4 ">
           <p className="text-md mb-4 truncate font-bold text-black">
-            Name of the Employee
+            {props.name}
           </p>
-          <p className="text-sm text-gray-600">Employee ID: 123123</p>
-          <p className="text-sm text-gray-600">Pay Date: 12/12/2022</p>
+          <p className="text-sm text-gray-600">Employee ID: {props.id}</p>
+          <p className="text-sm text-gray-600">Pay Date: {props.payDay}</p>
         </div>
 
-        <div className="flex-col items-center">
-          <p className="">Status</p>
-          <p className="mb-4 text-right text-xl font-semibold text-black">
-            $4,567.00
+        <div className="h-full flex-col space-y-6 p-4">
+          <p className="flex-1 text-end">
+            <PaymentStatus status={props.status} />
+          </p>
+          <p className="text-right text-xl font-semibold text-black">
+            ${props.amount}
           </p>
         </div>
       </div>

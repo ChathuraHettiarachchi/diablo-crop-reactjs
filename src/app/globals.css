@@ -9,3 +9,7 @@
 .table-row {
   @apply h-full pl-4 pt-4
 }
+
+.status {
+  @apply rounded-full px-3 py-2 text-sm text-white
+}

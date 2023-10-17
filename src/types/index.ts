@@ -1,3 +1,9 @@
+export enum Status {
+  Pending = "Pending Approval",
+  Approved = "Approved",
+  Rejected = "Rejected",
+}
+
 export interface CircleImageProps {
   url: string;
   height: number;
@@ -16,4 +22,8 @@ export interface PaymentTableItemProps {
   payDay: string;
   status: string;
   amount: number;
+}
+
+export interface StatusProps {
+  type: Status;
 }
