@@ -19,10 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="h-full">
         <ReduxProvider>
           <Header />
-          {children}
+          <div className="mx-auto max-h-full max-w-7xl">{children}</div>
           <Footer />
         </ReduxProvider>
       </body>

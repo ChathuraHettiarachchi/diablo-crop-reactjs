@@ -1,34 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-type InitialState = {
-  value: EmployeeState[];
-};
-
-type EmployeeState = {
-  employeeId: number;
-  employeeName: string;
-  payDate: string;
-  status: string;
-  payRunHours: number;
-  hourlyRate: number;
-  weeksPerCycle: number;
-  payments: PaymentState[];
-  deductions: DeductionState[];
-};
-
-type PaymentState = {
-  id: number;
-  name: string;
-  description: string;
-  amount: number;
-};
-
-type DeductionState = {
-  id: number;
-  name: string;
-  description: string;
-  amount: number;
-};
+import {
+  PaymentState,
+  DeductionState,
+  EmployeeState,
+  InitialState,
+} from "@/types";
 
 const initialState = {
   value: [
@@ -598,8 +574,8 @@ const initialState = {
   ],
 } as InitialState;
 
-export const payRuns = createSlice({
-  name: "payRuns",
+export const payrun = createSlice({
+  name: "payrun",
   initialState,
   reducers: {
     addPayment: (state, action: PayloadAction<any>) => {},
@@ -608,5 +584,5 @@ export const payRuns = createSlice({
   },
 });
 
-export const { addPayment, deletePayment, updatePayment } = payRuns.actions;
-export default payRuns.reducer;
+export const { addPayment, deletePayment, updatePayment } = payrun.actions;
+export default payrun.reducer;
