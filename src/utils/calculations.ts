@@ -1,3 +1,4 @@
+import { EmployeeState } from "./../types/index";
 // totalPay
 const totalPay = (employee: any) => {
   const salary = employee.payRunHours * employee.hourlyRate;
@@ -10,4 +11,9 @@ const totalPay = (employee: any) => {
   return salary + otherPayments;
 };
 
-export { totalPay };
+const filterEmployee = (id: number, data: EmployeeState[]) => {
+  const result = data.filter((i) => i.employeeId == id);
+  return result[0];
+};
+
+export { totalPay, filterEmployee };
