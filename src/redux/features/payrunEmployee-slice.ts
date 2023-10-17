@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { EmployeeState } from "@/types";
+import { calculateIncomeTax } from "@/utils/calculations";
 
 type InitialState = {
   value: EmployeeState;
@@ -14,7 +15,13 @@ export const payrunEmployee = createSlice({
   initialState,
   reducers: {
     setEmployee: (state, action) => {
-      state.value = action.payload;
+      const emp = action.payload;
+      emp.deductions[0].amount = calculateIncomeTax(
+        emp.payRunHours,
+        emp.hourlyRate,
+        emp.weeksPerCycle,
+      );
+      state.value = emp;
     },
   },
 });

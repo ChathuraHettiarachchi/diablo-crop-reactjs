@@ -42,7 +42,7 @@ const page = () => {
         <div className="rounded-xl lg:col-span-1">
           <EmployeeInfoCard />
         </div>
-        <div className="rounded-xl bg-gray-200 lg:col-span-2">
+        <div className="rounded-xl lg:col-span-2">
           <PaySheet />
           {/* <div className="mt-4 h-[100px] rounded-xl bg-gray-500"></div> */}
         </div>

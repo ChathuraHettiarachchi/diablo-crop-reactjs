@@ -8,7 +8,7 @@ const totalPay = (employee: any) => {
       (i: { amount: number }) => (otherPayments += i.amount),
     );
   }
-  return salary + otherPayments;
+  return (salary + otherPayments).toFixed(2);
 };
 
 const filterEmployee = (id: number, data: EmployeeState[]) => {
@@ -46,7 +46,7 @@ const calculateIncomeTax = (
   // Calculate fortnightly tax by dividing the annual tax by weeksPerCycle
   const fortnightlyTax = tax / (52 / weeksPerCycle);
 
-  return fortnightlyTax;
+  return fortnightlyTax.toFixed(2);
 };
 
 export { totalPay, filterEmployee, getRandomInt, calculateIncomeTax };

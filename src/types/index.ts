@@ -39,11 +39,18 @@ export interface PayPacketProps {
   nameClass?: string | undefined;
   descriptionClass?: string | undefined;
   amountClass?: string | undefined;
+  isKeyHidden?: boolean | undefined;
 }
 
 export interface ActionButtonProps {
   title: string;
   action: () => any;
+}
+
+export interface PaySummaryProps {
+  taxable: any;
+  tax: any;
+  netPay: any;
 }
 //----------------------------------------------------------
 export type InitialState = {
