@@ -47,7 +47,7 @@ const page = () => {
       </div>
 
       {/* pagination */}
-      <div className="">
+      <div className="flex w-full justify-center pr-4 lg:justify-end">
         <Pagination
           pageSize={countPerPage}
           onChange={updatePage}
