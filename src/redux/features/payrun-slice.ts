@@ -1,34 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-type InitialState = {
-  value: EmployeeState[];
-};
-
-type EmployeeState = {
-  employeeId: number;
-  employeeName: string;
-  payDate: string;
-  status: string;
-  payRunHours: number;
-  hourlyRate: number;
-  weeksPerCycle: number;
-  payments: PaymentState[];
-  deductions: DeductionState[];
-};
-
-type PaymentState = {
-  id: number;
-  name: string;
-  description: string;
-  amount: number;
-};
-
-type DeductionState = {
-  id: number;
-  name: string;
-  description: string;
-  amount: number;
-};
+import {
+  PaymentState,
+  DeductionState,
+  EmployeeState,
+  InitialState,
+} from "@/types";
 
 const initialState = {
   value: [

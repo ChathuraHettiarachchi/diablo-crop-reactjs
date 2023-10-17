@@ -17,13 +17,39 @@ export interface TitleSearchProps {
 }
 
 export interface PaymentTableItemProps {
-  id: number;
-  name: string;
-  payDay: string;
-  status: string;
-  amount: number;
+  employee: EmployeeState;
 }
 
 export interface StatusProps {
-  type: Status;
+  status: string;
 }
+
+export type InitialState = {
+  value: EmployeeState[];
+};
+
+export type EmployeeState = {
+  employeeId: number;
+  employeeName: string;
+  payDate: string;
+  status: string;
+  payRunHours: number;
+  hourlyRate: number;
+  weeksPerCycle: number;
+  payments: PaymentState[];
+  deductions: DeductionState[];
+};
+
+export type PaymentState = {
+  id: number;
+  name: string;
+  description: string;
+  amount: number;
+};
+
+export type DeductionState = {
+  id: number;
+  name: string;
+  description: string;
+  amount: number;
+};

@@ -22,13 +22,7 @@ const page = () => {
           </div>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-1 lg:gap-0">
             {payments.map((i) => (
-              <PaymentTableItem
-                id={i.employeeId}
-                name={i.employeeName}
-                payDay={i.payDate}
-                status={i.status}
-                amount={100}
-              />
+              <PaymentTableItem employee={i} />
             ))}
           </div>
         </div>
