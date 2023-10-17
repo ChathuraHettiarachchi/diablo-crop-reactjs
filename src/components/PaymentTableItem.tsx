@@ -1,7 +1,8 @@
-import { PaymentTableItemProps } from "@/types";
 import Link from "next/link";
 import React from "react";
 import PaymentStatus from "./PaymentStatus";
+
+import { PaymentTableItemProps } from "@/types";
 import { totalPay } from "@/utils/calculations";
 
 const PaymentTableItem = (props: PaymentTableItemProps) => {

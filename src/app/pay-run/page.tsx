@@ -1,10 +1,28 @@
 "use client";
+import React, { useEffect, useState } from "react";
 import { PaymentTableItem, TitleWithSearch } from "@/components";
-import React from "react";
 import { useAppSelector } from "@/redux/store";
+import Pagination from "rc-pagination";
+import "rc-pagination/assets/index.css";
 
 const page = () => {
   const payments = useAppSelector((state) => state.payrunReducer.value);
+
+  const countPerPage = 10;
+  const [value, setValue] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [collection, setCollection] = useState(payments);
+
+  const updatePage = (p: number) => {
+    setCurrentPage(p);
+    const to = countPerPage * p;
+    const from = to - countPerPage;
+    setCollection(payments.slice(from, to));
+  };
+
+  useEffect(() => {
+    updatePage(1);
+  }, []);
 
   return (
     <div className="flex flex-col p-4">
@@ -21,7 +39,7 @@ const page = () => {
             <div className="table-h">Amount</div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-1 lg:gap-0">
-            {payments.map((i) => (
+            {collection.map((i) => (
               <PaymentTableItem employee={i} />
             ))}
           </div>
@@ -29,7 +47,14 @@ const page = () => {
       </div>
 
       {/* pagination */}
-      <div className="">Pagination</div>
+      <div className="">
+        <Pagination
+          pageSize={countPerPage}
+          onChange={updatePage}
+          current={currentPage}
+          total={payments.length}
+        />
+      </div>
     </div>
   );
 };
