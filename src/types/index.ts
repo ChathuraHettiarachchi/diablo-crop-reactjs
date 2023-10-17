@@ -9,3 +9,11 @@ export interface TitleSearchProps {
   title: string;
   onChange: Function;
 }
+
+export interface PaymentTableItemProps {
+  id: number;
+  name: string;
+  payDay: string;
+  status: string;
+  amount: number;
+}

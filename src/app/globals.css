@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.table-h {
+  @apply flex-grow pl-4 font-bold
+}
+
+.table-row {
+  @apply h-full pl-4 pt-4
+}

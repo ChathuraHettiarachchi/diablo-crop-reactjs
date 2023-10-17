@@ -598,8 +598,8 @@ const initialState = {
   ],
 } as InitialState;
 
-export const payRuns = createSlice({
-  name: "payRuns",
+export const payrun = createSlice({
+  name: "payrun",
   initialState,
   reducers: {
     addPayment: (state, action: PayloadAction<any>) => {},
@@ -608,5 +608,5 @@ export const payRuns = createSlice({
   },
 });
 
-export const { addPayment, deletePayment, updatePayment } = payRuns.actions;
-export default payRuns.reducer;
+export const { addPayment, deletePayment, updatePayment } = payrun.actions;
+export default payrun.reducer;
