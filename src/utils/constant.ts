@@ -20,3 +20,12 @@ export const navLinks = [
     href: "#",
   },
 ];
+
+export const payField = (title: string, amount: any, description: string) => {
+  return {
+    id: 0,
+    name: title,
+    description: description,
+    amount: amount,
+  };
+};
