@@ -27,7 +27,7 @@ const PaySheet = () => {
 
   return (
     <div>
-      <div className="min-h-min rounded-xl bg-gray-200 bg-clip-border">
+      <div className="min-h-min overflow-hidden rounded-xl bg-gray-200">
         <div className="hidden h-14 w-full grid-cols-11 items-center justify-between rounded-t-xl bg-gray-300 pl-4 pr-2 md:grid">
           <p className="col-span-3 w-full font-semibold">Name</p>
           <p className="col-span-4 font-semibold">Description</p>

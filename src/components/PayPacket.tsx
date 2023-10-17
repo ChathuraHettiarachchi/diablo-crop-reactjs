@@ -24,7 +24,7 @@ const PayPacket = (props: PayPacketProps) => {
   return (
     <div className="">
       {window.innerWidth < 768 ? (
-        <div className="flex flex-col rounded-t-xl bg-gray-100 p-4">
+        <div className="flex flex-col  bg-gray-100 p-4">
           <div className="flex justify-between">
             <div>
               <p className={`mb-1 ${props.amountClass}`}>
