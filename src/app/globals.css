@@ -13,3 +13,11 @@
 .status {
   @apply rounded-full px-3 py-2 text-sm text-white
 }
+
+.employee-card {
+  @apply mb-1 text-gray-500
+}
+
+.employee-data {
+  @apply ml-1 text-gray-800
+}

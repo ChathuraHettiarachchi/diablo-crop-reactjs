@@ -4,6 +4,7 @@ import CircleImage from "./CircleImage";
 import Footer from "./Footer";
 import TitleWithSearch from "./TitleWithSearch";
 import PaymentTableItem from "./PaymentTableItem";
+import EmployeeInfoCard from "./EmployeeInfoCard";
 
 export {
   Header,
@@ -12,4 +13,5 @@ export {
   Footer,
   TitleWithSearch,
   PaymentTableItem,
+  EmployeeInfoCard,
 };

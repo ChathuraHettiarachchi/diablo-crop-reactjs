@@ -5,6 +5,7 @@ import { IoMdArrowBack } from "react-icons/io";
 import { filterEmployee } from "@/utils/calculations";
 import { useAppSelector } from "@/redux/store";
 import { useSearchParams, useRouter } from "next/navigation";
+import { EmployeeInfoCard } from "@/components";
 
 const page = () => {
   const router = useRouter();
@@ -30,7 +31,9 @@ const page = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-2 bg-white px-6 py-6 lg:grid-cols-3">
-        <div className="h-[100px] rounded-xl bg-black lg:col-span-1"></div>
+        <div className="rounded-xl lg:col-span-1">
+          <EmployeeInfoCard employee={employee} />
+        </div>
         <div className="h-[300px] rounded-xl bg-red-500 lg:col-span-2">
           <div className="h-[300px] rounded-xl bg-red-500"></div>
           <div className="mt-4 h-[100px] rounded-xl bg-gray-500"></div>

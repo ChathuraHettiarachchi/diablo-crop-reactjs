@@ -24,6 +24,10 @@ export interface StatusProps {
   status: string;
 }
 
+export interface EmployeeProps {
+  employee: EmployeeState;
+}
+
 export type InitialState = {
   value: EmployeeState[];
 };

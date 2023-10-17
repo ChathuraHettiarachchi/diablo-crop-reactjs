@@ -16,4 +16,8 @@ const filterEmployee = (id: number, data: EmployeeState[]) => {
   return result[0];
 };
 
-export { totalPay, filterEmployee };
+const getRandomInt = (max: number) => {
+  return Math.floor(Math.random() * max);
+};
+
+export { totalPay, filterEmployee, getRandomInt };
