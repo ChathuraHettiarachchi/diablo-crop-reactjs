@@ -66,27 +66,49 @@ const PayPacket = (props: PayPacketProps) => {
         <div className="flex flex-col  bg-gray-100 p-4">
           <div className="flex justify-between">
             <div>
-              <span className={`text-gray-500 ${props.descriptionClass}`}>
-                Name:{" "}
+              <div>
+                <span
+                  className={clsx(
+                    `text-gray-500 ${props.nameClass}`,
+                    props.isKeyHidden && "hidden",
+                  )}
+                >
+                  Name:{" "}
+                </span>
                 <input
                   type={"text"}
                   value={name}
                   onChange={handleSetName}
                   disabled={!isOnEdit || isBlocked}
-                  className={`mb-1 ${props.nameClass} mr-2 h-8 rounded pl-2`}
-                ></input>
-              </span>
+                  className={clsx(
+                    `mb-1 ${props.nameClass} mr-2 h-8 rounded pl-2`,
+                    props.isKeyHidden && "pl-0",
+                  )}
+                />
+              </div>
 
-              <p className={`text-gray-500 ${props.descriptionClass}`}>
-                Description:{" "}
+              <div
+                className={clsx(
+                  `text-gray-500 ${props.descriptionClass}`,
+                  props.isKeyHidden && "hidden",
+                )}
+              >
+                <span
+                  className={clsx(
+                    `text-gray-500 ${props.descriptionClass}`,
+                    props.isKeyHidden && "hidden",
+                  )}
+                >
+                  Description:{" "}
+                </span>
                 <input
                   type={"text"}
                   value={description}
                   onChange={handleSetDescription}
                   disabled={!isOnEdit || isBlocked}
                   className={`mb-1 ${props.descriptionClass} mr-2 h-8 rounded pl-2`}
-                ></input>
-              </p>
+                />
+              </div>
             </div>
 
             <div>
