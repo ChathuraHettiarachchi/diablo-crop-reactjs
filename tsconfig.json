@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/pay-run/packet/[slug].js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/pay-run/packet/[slug].js", "node_modules/redux-mock-store/**/*.d.ts" ],
   "exclude": ["node_modules"]
 }

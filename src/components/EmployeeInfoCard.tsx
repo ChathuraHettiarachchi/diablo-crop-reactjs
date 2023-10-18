@@ -1,15 +1,18 @@
-import { EmployeeProps } from "@/types";
+import { EmployeeInfoProps, EmployeeProps } from "@/types";
 import React from "react";
 import { CircleImage } from ".";
 import { getRandomInt } from "@/utils/calculations";
 import { useAppSelector } from "@/redux/store";
 
-const EmployeeInfoCard = () => {
+const EmployeeInfoCard = (props: EmployeeInfoProps) => {
   const employee = useAppSelector((state) => state.payrunEmployeeReducer.value);
   const url = "https://i.pravatar.cc/150?img=" + getRandomInt(50);
 
   return (
-    <div className="flex flex-col rounded-xl bg-gray-200 p-4 md:flex-row lg:flex-col">
+    <div
+      className="flex flex-col rounded-xl bg-gray-200 p-4 md:flex-row lg:flex-col"
+      data-testid={props.dataTestId}
+    >
       <div className="flex flex-col items-center justify-center ">
         <CircleImage url={url} height={140} width={140} alt="" />
         <p className="mt-2 text-xl font-bold lg:text-2xl">

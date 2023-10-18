@@ -5,7 +5,7 @@ import { useAppSelector } from "@/redux/store";
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
 
-const page = () => {
+const PayRuns = () => {
   const payments = useAppSelector((state) => state.payrunReducer.value);
 
   const countPerPage = 10;
@@ -26,7 +26,11 @@ const page = () => {
 
   return (
     <div className="flex min-h-full flex-col p-4">
-      <TitleWithSearch title="Employee Payments" onChange={() => {}} />
+      <TitleWithSearch
+        title="Employee Payments"
+        onChange={() => {}}
+        dataTestId="title-with-search"
+      />
 
       {/* for big screens, view as a table, middle and mobile will be a grid with 1,2 cols */}
       <div className="mr-8 mt-2 ">
@@ -40,7 +44,7 @@ const page = () => {
           </div>
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-1 lg:gap-0">
             {collection.map((i) => (
-              <PaymentTableItem employee={i} />
+              <PaymentTableItem key={i.employeeId} employee={i} />
             ))}
           </div>
         </div>
@@ -59,4 +63,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default PayRuns;

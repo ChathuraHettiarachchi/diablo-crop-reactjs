@@ -16,6 +16,7 @@ export interface CircleImageProps {
 export interface TitleSearchProps {
   title: string;
   onChange: () => any;
+  dataTestId?: string;
 }
 
 export interface PaymentTableItemProps {
@@ -51,6 +52,10 @@ export interface PaySummaryProps {
   taxable: any;
   tax: any;
   netPay: any;
+}
+
+export interface EmployeeInfoProps {
+  dataTestId?: string;
 }
 //----------------------------------------------------------
 export type InitialState = {

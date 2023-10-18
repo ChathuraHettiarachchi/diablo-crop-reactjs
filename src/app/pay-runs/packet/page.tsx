@@ -7,7 +7,7 @@ import { useAppSelector } from "@/redux/store";
 import { useSearchParams, useRouter } from "next/navigation";
 import { EmployeeInfoCard, PaySheet } from "@/components";
 
-const page = () => {
+const Packet = () => {
   const router = useRouter();
   const params = useSearchParams();
   const employeeId = parseInt(params.get("id")!);
@@ -27,6 +27,7 @@ const page = () => {
     <div className="flex min-h-screen flex-1 flex-col overflow-auto">
       <div className="flex items-center pl-8 hover:cursor-pointer lg:pl-0">
         <IoMdArrowBack
+          data-testId="back-button"
           className="h-6 w-6 text-black"
           onClick={() => router.back()}
         />
@@ -40,7 +41,7 @@ const page = () => {
 
       <div className="grid grid-cols-1 gap-2 bg-white px-6 py-6 lg:grid-cols-3">
         <div className="rounded-xl lg:col-span-1">
-          <EmployeeInfoCard />
+          <EmployeeInfoCard dataTestId="employee-info" />
         </div>
         <div className="rounded-xl lg:col-span-2">
           <PaySheet />
@@ -51,4 +52,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Packet;

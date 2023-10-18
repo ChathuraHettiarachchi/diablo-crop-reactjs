@@ -9,6 +9,7 @@ import PayPacket from "./PayPacket";
 import PaySheet from "./PaySheet";
 import ActionButton from "./ActionButton";
 import PaySummary from "./PaySummary";
+import PaymentStatus from "./PaymentStatus";
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   PayPacket,
   ActionButton,
   PaySummary,
+  PaymentStatus,
 };

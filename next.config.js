@@ -8,6 +8,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/pay-runs",
+        permanent: true, // 301 redirect (permanent)
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
