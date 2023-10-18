@@ -48,7 +48,7 @@ const PaySheet = () => {
 
         {/* payments */}
         {employee.payments.map((pay) => (
-          <PayPacket payData={pay} />
+          <PayPacket key={pay.id} payData={pay} />
         ))}
         <PayPacket
           payData={payField("Gross Pay", grossPay, "")}
@@ -63,7 +63,7 @@ const PaySheet = () => {
         {/* deductions */}
         <p className="p-4 font-bold">Deductions</p>
         {employee.deductions.map((deduct) => (
-          <PayPacket payData={deduct} />
+          <PayPacket key={deduct.id} payData={deduct} />
         ))}
         <PayPacket
           payData={payField(
