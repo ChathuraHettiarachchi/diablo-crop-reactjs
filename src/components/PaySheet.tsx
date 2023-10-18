@@ -23,12 +23,13 @@ const PaySheet = () => {
   const addNewPayment = () => {
     const payment = {
       id: employee.payments.length + 1,
-      amount: 100,
-      name: "Name",
+      amount: 0,
+      name: "",
       description: "Description",
     } as PaymentState;
 
     dispatch(addPayment(payment));
+    setGrossPay(totalPay(employee));
   };
 
   useEffect(() => {

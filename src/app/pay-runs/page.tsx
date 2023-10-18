@@ -25,7 +25,7 @@ const page = () => {
   }, []);
 
   return (
-    <div className="flex flex-col p-4">
+    <div className="flex min-h-full flex-col p-4">
       <TitleWithSearch title="Employee Payments" onChange={() => {}} />
 
       {/* for big screens, view as a table, middle and mobile will be a grid with 1,2 cols */}
