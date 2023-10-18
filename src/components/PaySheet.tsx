@@ -1,28 +1,38 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { DeductionState, PaySheetProps, PaymentState } from "@/types";
+import { PaymentState } from "@/types";
 import { ActionButton, PayPacket, PaySummary } from ".";
 import { useAppSelector } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
-import { totalPay, calculateIncomeTax } from "@/utils/calculations";
-import { updatePayment } from "@/redux/features/payrun-slice";
+import { totalPay } from "@/utils/calculations";
 import { payField } from "@/utils/constant";
+import { addPayment } from "@/redux/features/payrunEmployee-slice";
 
 const PaySheet = () => {
   const employee = useAppSelector((state) => state.payrunEmployeeReducer.value);
   const dispatch = useDispatch<AppDispatch>();
 
-  const [grossPayObject, setGrossPayObject] = useState({} as PaymentState);
   const [grossPay, setGrossPay] = useState(totalPay(employee));
 
   const netPay = () => {
     return (parseFloat(grossPay) - employee.deductions[0].amount).toFixed(2);
   };
 
+  const addNewPayment = () => {
+    const payment = {
+      id: employee.payments.length + 1,
+      amount: 100,
+      name: "Name",
+      description: "Description",
+    } as PaymentState;
+
+    dispatch(addPayment(payment));
+  };
+
   useEffect(() => {
-    setGrossPayObject(payField("Gross Pay", grossPay, ""));
+    setGrossPay(totalPay(employee));
   }, [employee]);
 
   return (
@@ -40,13 +50,13 @@ const PaySheet = () => {
           <PayPacket payData={pay} />
         ))}
         <PayPacket
-          payData={grossPayObject}
+          payData={payField("Gross Pay", grossPay, "")}
           nameClass="font-bold"
           amountClass="font-bold"
           isKeyHidden={true}
         />
         <div className="flex justify-end">
-          <ActionButton title="Add Payment" action={() => {}} />
+          <ActionButton title="Add Payment" action={addNewPayment} />
         </div>
 
         {/* deductions */}

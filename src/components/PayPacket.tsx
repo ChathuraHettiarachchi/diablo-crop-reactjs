@@ -5,20 +5,28 @@ import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { IoMdDoneAll } from "react-icons/io";
 import { useAppSelector } from "@/redux/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
 
 import clsx from "clsx";
+import { deletePayment } from "@/redux/features/payrunEmployee-slice";
 
 const PayPacket = (props: PayPacketProps) => {
+  const dispatch = useDispatch<AppDispatch>();
   const payData = props.payData;
   const employee = useAppSelector((state) => state.payrunEmployeeReducer.value);
   const isBlocked = payData.id < 2;
 
   const amount = () => {
     if (payData.amount < 0) {
-      return employee.hourlyRate * employee.payRunHours;
+      return (employee.hourlyRate * employee.payRunHours).toFixed(2);
     } else {
-      return payData.amount;
+      return (payData.amount * 1.0).toFixed(2);
     }
+  };
+
+  const deleteOldPayment = () => {
+    dispatch(deletePayment(payData.id));
   };
 
   return (
@@ -65,7 +73,10 @@ const PayPacket = (props: PayPacketProps) => {
             )}
           >
             <BiEdit className="text-blue-700" />
-            <RiDeleteBin2Fill className="text-red-700" />
+            <RiDeleteBin2Fill
+              className="text-red-700"
+              onClick={deleteOldPayment}
+            />
             <IoMdDoneAll className="text-green-700" />
           </div>
         </div>
@@ -84,7 +95,10 @@ const PayPacket = (props: PayPacketProps) => {
           >
             <></>
             <BiEdit className="text-blue-700" />
-            <RiDeleteBin2Fill className="text-red-700" />
+            <RiDeleteBin2Fill
+              className="text-red-700"
+              onClick={deleteOldPayment}
+            />
             <IoMdDoneAll className="text-green-700" />
           </div>
         </div>

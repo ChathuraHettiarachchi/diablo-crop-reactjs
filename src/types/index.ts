@@ -69,6 +69,11 @@ export type EmployeeState = {
   deductions: DeductionState[];
 };
 
+export type AddPaymentState = {
+  employeeId: number;
+  payment: PaymentState;
+};
+
 export type PaymentState = {
   id: number;
   name: string;

@@ -1,6 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { EmployeeState } from "@/types";
+import {
+  PaymentState,
+  DeductionState,
+  EmployeeState,
+  AddPaymentState,
+} from "@/types";
 import { calculateIncomeTax } from "@/utils/calculations";
+import { stat } from "fs";
 
 type InitialState = {
   value: EmployeeState;
@@ -23,8 +29,26 @@ export const payrunEmployee = createSlice({
       );
       state.value = emp;
     },
+    addPayment: (state, action: PayloadAction<PaymentState>) => {
+      var payments = state.value.payments;
+      payments.push(action.payload);
+      state.value.payments = payments;
+    },
+    deletePayment: (state, action: PayloadAction<number>) => {
+      const index = state.value.payments.findIndex(
+        (i) => i.id == action.payload,
+      );
+      state.value.payments.splice(index, 1);
+    },
+    updatePayment: (state, action: PayloadAction<PaymentState>) => {
+      const index = state.value.payments.findIndex(
+        (i) => i.id == action.payload.id,
+      );
+      state.value.payments[index] = action.payload;
+    },
   },
 });
 
-export const { setEmployee } = payrunEmployee.actions;
+export const { setEmployee, addPayment, deletePayment, updatePayment } =
+  payrunEmployee.actions;
 export default payrunEmployee.reducer;
