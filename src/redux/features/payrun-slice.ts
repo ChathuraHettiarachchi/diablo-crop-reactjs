@@ -4,7 +4,9 @@ import {
   DeductionState,
   EmployeeState,
   InitialState,
+  AddPaymentState,
 } from "@/types";
+import { stat } from "fs";
 
 const initialState = {
   value: [
@@ -578,7 +580,13 @@ export const payrun = createSlice({
   name: "payrun",
   initialState,
   reducers: {
-    addPayment: (state, action: PayloadAction<any>) => {},
+    addPayment: (state, action: PayloadAction<AddPaymentState>) => {
+      const filtered = state.value.findIndex(
+        (i) => i.employeeId == action.payload.employeeId,
+      );
+
+      state.value[filtered].payments.push(action.payload.payment);
+    },
     deletePayment: (state, action: PayloadAction<number>) => {},
     updatePayment: (state, action: PayloadAction<EmployeeState>) => {
       const filtered = state.value.findIndex(
