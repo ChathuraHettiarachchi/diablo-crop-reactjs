@@ -1,0 +1,4 @@
+[[redirects]]
+from = "/"
+to = "/pay-runs"
+status = 301
