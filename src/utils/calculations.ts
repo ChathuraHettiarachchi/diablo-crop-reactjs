@@ -8,7 +8,12 @@ const totalPay = (employee: any) => {
       (i: { amount: number }) => (otherPayments += i.amount),
     );
   }
-  return (salary + otherPayments).toFixed(2);
+
+  var _total = salary + otherPayments;
+  var _formatted = _total.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+  });
+  return _formatted;
 };
 
 const filterEmployee = (id: number, data: EmployeeState[]) => {

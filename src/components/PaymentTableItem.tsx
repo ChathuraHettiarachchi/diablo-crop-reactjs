@@ -7,6 +7,7 @@ import { totalPay } from "@/utils/calculations";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { setEmployee } from "@/redux/features/payrunEmployee-slice";
+import { toFormattedNumber } from "@/utils/helper";
 
 const PaymentTableItem = (props: PaymentTableItemProps) => {
   const emp = props.employee;
